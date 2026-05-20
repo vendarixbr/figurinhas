@@ -42,6 +42,11 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
     body {
       font-family: var(--font-body);
       background: var(--cream);
@@ -1721,7 +1726,7 @@
         stickyBtn.textContent = cfg.text;
         stickyBtn.onclick     = cfg.fn;
         stickyEl.classList.add(cfg.bg);
-        setTimeout(() => stickyEl.classList.add('visible'), 1400);
+        setTimeout(() => stickyEl.classList.add('visible'), 300);
       }
 
       if (n === 8 && !countdownStarted) {
