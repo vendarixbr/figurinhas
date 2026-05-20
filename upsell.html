@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>⚽ ESPERA! Oferta Especial — Figurinha Personalizada Copa 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:  #3aaa5c;
+      --green-d:#2a8a47;
+      --green-l:#52d47a;
+      --bg:     #faf9f5;
+      --ink:    #0c121a;
+      --yellow: #f5e03a;
+      --red:    #dc2626;
+      --orange: #f97316;
+      --dark:   #0c121a;
+      --white:  #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILS ─────────────────────────────────────────── */
+    .container { max-width: 640px; margin: 0 auto; }
+    .text-center { text-align: center; }
+
+    .rainbow {
+      height: 7px;
+      background: linear-gradient(to right,
+        #7c3aed, #ef4444, #16a34a, #2563eb,
+        #ca8a04, #db2777, #ea580c, #65a30d, #1c1917);
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      border: 3px solid currentColor;
+      border-radius: 6px;
+      padding: 4px 14px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+    }
+
+    /* ─── URGENCY BAR ────────────────────────────────────── */
+    .urgency-bar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 11px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #countdown {
+      background: rgba(255,255,255,.18);
+      border-radius: 5px;
+      padding: 3px 10px;
+      font-family: 'Anton', monospace;
+      font-size: 19px;
+      letter-spacing: 3px;
+    }
+
+    /* ─── STEP BAR ───────────────────────────────────────── */
+    .step-bar {
+      background: var(--yellow);
+      padding: 14px 20px;
+      text-align: center;
+    }
+    .step-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .step-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+    }
+    .step-dot {
+      width: 33px; height: 33px;
+      border-radius: 50%;
+      border: 2.5px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+    .step-dot.done  { background: var(--green);  border-color: var(--green);  color: #fff; }
+    .step-dot.active{ background: var(--ink);    border-color: var(--ink);    color: var(--yellow); }
+    .step-line { height: 2.5px; flex: 1; background: var(--ink); min-width: 30px; }
+    .step-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      color: var(--ink);
+    }
+    .step-label.active { font-weight: 900; }
+
+    /* ─── HERO ───────────────────────────────────────────── */
+    .hero {
+      background: var(--dark);
+      padding: 52px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute;
+      border-radius: 50%;
+      opacity: .07;
+      pointer-events: none;
+    }
+    .hero-glow.a { width: 320px; height: 320px; background: var(--green);  top: -120px; left: -80px; }
+    .hero-glow.b { width: 220px; height: 220px; background: var(--yellow); bottom: -80px; right: -60px; }
+
+    .hero .badge  { color: var(--yellow); margin-bottom: 20px; }
+    .hero-eyebrow {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-l);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(38px, 9vw, 68px);
+      line-height: 1.03;
+      color: #fff;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 .y  { color: var(--yellow); }
+    .hero h1 .g  { color: var(--green-l); }
+
+    .hero-sub {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(255,255,255,.72);
+      max-width: 500px;
+      margin: 20px auto 0;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-sub strong { color: #fff; }
+
+    /* ─── PRODUCT SHOWCASE ───────────────────────────────── */
+    .product-wrap {
+      background: var(--dark);
+      padding: 8px 24px 52px;
+    }
+    .product-card {
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.6);
+      display: block;
+    }
+    .product-card .img-fallback {
+      background: linear-gradient(135deg,#1a4a2e,#0c1f14);
+      border-radius: 14px;
+      height: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      box-shadow: 0 24px 64px rgba(0,0,0,.6);
+    }
+    .product-card .img-fallback span:first-child { font-size: 72px; }
+    .product-card .img-fallback span:last-child  {
+      font-family: 'Anton', sans-serif;
+      font-size: 22px;
+      color: var(--yellow);
+      text-align: center;
+      padding: 0 20px;
+      text-transform: uppercase;
+    }
+
+    .sticker-badge {
+      position: absolute;
+      top: -14px; right: -10px;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Anton', sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      padding: 7px 14px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      transform: rotate(3deg);
+      box-shadow: 0 4px 12px rgba(0,0,0,.4);
+    }
+    .sticker-tag {
+      position: absolute;
+      bottom: -14px; left: 20px;
+      background: var(--yellow);
+      color: var(--ink);
+      font-weight: 800;
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 20px;
+      border: 2.5px solid var(--ink);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    /* ─── SECTION HEADER ─────────────────────────────────── */
+    .section-header { text-align: center; margin-bottom: 36px; }
+    .section-header .badge { color: var(--ink); margin-bottom: 14px; }
+    .section-title {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(28px, 6vw, 48px);
+      text-transform: uppercase;
+      line-height: 1.08;
+    }
+    .section-title .g { color: var(--green); }
+    .section-title .y { color: #b8860b; }
+
+    /* ─── BENEFITS ───────────────────────────────────────── */
+    .benefits {
+      background: var(--bg);
+      padding: 60px 24px;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 12px;
+      padding: 20px 20px 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+      background: var(--green);
+    }
+    .benefit-card.bonus::before { background: var(--orange); }
+    .b-icon  { font-size: 34px; flex-shrink: 0; line-height: 1; }
+    .b-title { font-weight: 800; font-size: 15px; margin-bottom: 4px; }
+    .b-desc  { font-size: 13px; color: #555; line-height: 1.65; }
+    .b-tag {
+      display: inline-block;
+      background: var(--yellow);
+      border: 1.5px solid var(--ink);
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .b-tag.bonus { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+    /* ─── PERSONALIZATION ────────────────────────────────── */
+    .perso-section {
+      background: var(--yellow);
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .perso-section .section-title .y { color: var(--ink); }
+    .perso-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 460px;
+      margin: 32px auto 0;
+    }
+    .perso-item {
+      background: var(--white);
+      border: 2.5px solid var(--ink);
+      border-radius: 10px;
+      padding: 18px 12px 14px;
+      text-align: center;
+    }
+    .perso-item .p-icon  { font-size: 30px; display: block; margin-bottom: 9px; }
+    .perso-item .p-label { font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .8px; }
+
+    /* ─── SOCIAL PROOF ───────────────────────────────────── */
+    .social {
+      background: var(--dark);
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .social-number {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(52px, 14vw, 88px);
+      color: var(--yellow);
+      line-height: 1;
+    }
+    .social-label {
+      color: rgba(255,255,255,.7);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 8px;
+    }
+    .stars { color: var(--yellow); font-size: 26px; letter-spacing: 5px; margin: 18px 0 6px; }
+    .rating-label { color: rgba(255,255,255,.5); font-size: 12px; font-weight: 600; }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 520px;
+      margin: 28px auto 0;
+    }
+    .testimonial {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: left;
+    }
+    .t-text   { color: rgba(255,255,255,.82); font-size: 13px; font-style: italic; line-height: 1.7; margin-bottom: 12px; }
+    .t-footer { display: flex; align-items: center; gap: 10px; }
+    .t-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--green);
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .t-author { font-weight: 700; font-size: 11px; color: var(--green-l); text-transform: uppercase; letter-spacing: 1px; }
+    .t-stars  { color: var(--yellow); font-size: 11px; letter-spacing: 1px; }
+
+    /* ─── PRICE / CTA ────────────────────────────────────── */
+    .cta-section {
+      background: var(--bg);
+      padding: 64px 24px 48px;
+      text-align: center;
+    }
+    .price-box {
+      background: var(--white);
+      border: 3px solid var(--ink);
+      border-radius: 18px;
+      padding: 40px 28px 32px;
+      max-width: 480px;
+      margin: 32px auto 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .price-box-top {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      background: var(--green);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 5px 22px;
+      border-radius: 0 0 8px 8px;
+      white-space: nowrap;
+    }
+
+    .price-old  { font-size: 15px; color: #999; text-decoration: line-through; font-weight: 600; margin-bottom: 4px; }
+    .price-row  { display: flex; align-items: flex-start; justify-content: center; gap: 3px; }
+    .price-curr { font-size: 26px; font-weight: 900; margin-top: 14px; color: var(--green); }
+    .price-num  { font-family: 'Anton', sans-serif; font-size: clamp(56px, 16vw, 88px); color: var(--green); line-height: 1; }
+    .price-cent { font-size: 26px; font-weight: 900; margin-top: 14px; color: var(--green); }
+    .price-sub  { font-size: 12px; color: #777; font-weight: 600; margin-bottom: 20px; }
+
+    .includes-box {
+      background: #f0fdf4;
+      border: 1.5px solid var(--green);
+      border-radius: 10px;
+      padding: 14px 16px;
+      text-align: left;
+      margin: 12px 0 24px;
+    }
+    .includes-title { font-weight: 800; font-size: 13px; color: var(--green); margin-bottom: 10px; }
+    .include-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      padding: 3px 0;
+    }
+    .include-row .ck { color: var(--green); font-weight: 900; font-size: 16px; flex-shrink: 0; }
+
+    /* ─── BUTTON ─────────────────────────────────────────── */
+    .btn-cta {
+      display: block;
+      width: 100%;
+      background: var(--green);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      padding: 18px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      text-decoration: none;
+      text-align: center;
+      line-height: 1.35;
+      transition: background .2s, transform .1s;
+      box-shadow: 0 5px 0 var(--green-d);
+    }
+    .btn-cta:hover  { background: var(--green-l); }
+    .btn-cta:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--green-d); }
+    .btn-cta::after {
+      content: '';
+      position: absolute;
+      top: -60%; left: -80%;
+      width: 50%; height: 220%;
+      background: rgba(255,255,255,.22);
+      transform: skewX(-15deg);
+      animation: shine 2.8s infinite;
+    }
+    @keyframes shine {
+      0%   { left: -80%; }
+      50%  { left: 130%; }
+      100% { left: 130%; }
+    }
+    .btn-sub { font-size: 11px; opacity: .82; font-weight: 500; margin-top: 5px; display: block; }
+
+    .safe-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      font-size: 11px;
+      color: #999;
+      font-weight: 600;
+    }
+
+    /* ─── GUARANTEE ──────────────────────────────────────── */
+    .guarantee {
+      background: var(--bg);
+      padding: 12px 24px 40px;
+    }
+    .guarantee-box {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 480px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 2px solid #e2e2e2;
+      border-radius: 12px;
+      padding: 22px 20px;
+      text-align: left;
+    }
+    .g-icon  { font-size: 44px; flex-shrink: 0; }
+    .g-title { font-weight: 800; font-size: 14px; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
+    .g-text  { font-size: 12.5px; color: #666; line-height: 1.65; }
+
+    /* ─── SKIP ───────────────────────────────────────────── */
+    .skip-section { padding: 20px 24px 44px; text-align: center; background: var(--bg); }
+    .skip-link {
+      color: #bbb;
+      font-size: 11.5px;
+      text-decoration: underline;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1.7;
+      max-width: 300px;
+      display: inline-block;
+    }
+    .skip-link:hover { color: #888; }
+
+    /* ─── SECURITY FOOTER ────────────────────────────────── */
+    .security-footer {
+      background: var(--dark);
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .sec-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,.5);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── FLOATING CTA ───────────────────────────────────── */
+    .floating-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      padding: 12px 20px 14px;
+      background: var(--white);
+      border-top: 2.5px solid var(--ink);
+      z-index: 150;
+      display: none;
+    }
+    .floating-cta.show { display: block; }
+
+
+    /* ─── INLINE CTA ────────────────────────────────────── */
+    .inline-cta {
+      background: var(--dark);
+      padding: 28px 24px;
+      text-align: center;
+    }
+    .inline-cta-inner {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .inline-cta-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    .inline-cta-price {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+    .inline-cta-old {
+      font-size: 13px;
+      color: rgba(255,255,255,.35);
+      text-decoration: line-through;
+      font-weight: 600;
+    }
+    .inline-cta-new {
+      font-family: 'Anton', sans-serif;
+      font-size: 32px;
+      color: var(--green-l);
+      line-height: 1;
+    }
+    .inline-cta-pix {
+      background: rgba(50,188,173,.15);
+      border: 1px solid rgba(50,188,173,.35);
+      border-radius: 20px;
+      padding: 3px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #32bcad;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── KIT CONTEXT SECTION ───────────────────────────── */
+    .kit-section {
+      background: var(--dark);
+      padding: 0 24px 52px;
+    }
+    .kit-inner {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .kit-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,.7);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 16px;
+    }
+    .kit-img {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 16px 48px rgba(0,0,0,.5);
+      display: block;
+    }
+    .kit-caption {
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.55);
+      font-weight: 600;
+    }
+    .kit-caption strong { color: var(--yellow); }
+
+    /* ─── SELEÇÕES GALLERY ───────────────────────────────── */
+    .sele-section {
+      background: var(--yellow);
+      padding: 0 24px 56px;
+    }
+    .sele-heading {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(20px, 5vw, 32px);
+      text-transform: uppercase;
+      text-align: center;
+      padding-top: 32px;
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .sele-scroll {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .sele-card {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2.5px solid var(--ink);
+      box-shadow: 0 6px 20px rgba(0,0,0,.18);
+      background: var(--white);
+      position: relative;
+    }
+    .sele-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      object-position: top;
+    }
+    .sele-card-tag {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: var(--ink);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
+      padding: 5px 8px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    /* ─── PRINT PROOF ────────────────────────────────────── */
+    .print-section {
+      background: var(--bg);
+      padding: 48px 24px;
+    }
+    .print-inner {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .print-img {
+      width: 100%;
+      border-radius: 14px;
+      border: 2.5px solid var(--ink);
+      box-shadow: 0 12px 36px rgba(0,0,0,.12);
+      display: block;
+      margin: 20px auto 0;
+    }
+    .print-tags {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .print-tag {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (min-width: 600px) {
+      .benefits-grid  { grid-template-columns: 1fr 1fr; }
+      .testimonials   { grid-template-columns: 1fr 1fr; }
+      .sele-scroll    { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 380px) {
+      .perso-grid     { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ URGENCY BAR ══════════════════════════════════════════════ -->
+<div class="urgency-bar">
+  ⚡ Esta oferta exclusiva expira em: <span id="countdown">10:00</span>
+</div>
+
+<!-- ═══ STEP INDICATOR ══════════════════════════════════════════ -->
+<div class="step-bar">
+  <div class="step-inner">
+    <div class="step-col">
+      <div class="step-dot done">✓</div>
+      <span class="step-label">Pedido</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-col">
+      <div class="step-dot active">2</div>
+      <span class="step-label active">Upgrade</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-col">
+      <div class="step-dot">3</div>
+      <span class="step-label">Confirmação</span>
+    </div>
+  </div>
+</div>
+
+<div class="rainbow"></div>
+
+<!-- ═══ HERO ════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-glow a"></div>
+  <div class="hero-glow b"></div>
+  <div class="container" style="position:relative;z-index:1">
+    <div class="badge" style="margin-bottom:20px">⚡ Oferta Exclusiva — Só Para Clientes VIP</div>
+    <p class="hero-eyebrow">✅ Seu álbum foi confirmado com sucesso!</p>
+    <h1>
+      ESPERA!<br>
+      <span class="y">Antes de ir,</span><br>
+      que tal <span class="g">virar o craque</span><br>
+      da figurinha?
+    </h1>
+    <p class="hero-sub">
+      Você acabou de garantir o Álbum + Todas as Figurinhas da Copa 2026.<br><br>
+      Agora imagine <strong>colocar o seu rosto — ou de alguém que você ama —</strong>
+      em uma figurinha oficial da Copa do Mundo. <strong>Card único, exclusivo, seu.</strong>
+    </p>
+  </div>
+</section>
+
+<!-- ═══ PRODUCT SHOWCASE ════════════════════════════════════════ -->
+<div class="product-wrap">
+  <div class="product-card">
+    <img
+      src="images/figurinha.png"
+      alt="Figurinha Personalizada Copa do Mundo 2026"
+      id="productImg"
+    />
+    <div class="img-fallback" id="imgFallback" style="display:none">
+      <span>⚽</span>
+      <span>Figurinha Personalizada<br>Copa 2026</span>
+    </div>
+    <div class="sticker-badge">PDF Digital</div>
+    <div class="sticker-tag">⭐ Card Único</div>
+  </div>
+</div>
+
+<!-- ─ CTA 1 ─────────────────────────────────────────────────── -->
+<div class="inline-cta">
+  <div class="inline-cta-inner">
+    <div class="inline-cta-label">⚡ Oferta por tempo limitado</div>
+    <div class="inline-cta-price">
+      <span class="inline-cta-old">R$ 49,90</span>
+      <span class="inline-cta-new">R$ 24,90</span>
+      <span class="inline-cta-pix">via PIX</span>
+    </div>
+    <button class="btn-cta" onclick="window.location.href='https://multi.paradisepags.com/p/pix_603a8734e4fd'">
+      ⚽ QUERO MINHA FIGURINHA PERSONALIZADA
+      <span class="btn-sub">Pagar agora via PIX · Receba na hora</span>
+    </button>
+  </div>
+</div>
+
+<div class="rainbow"></div>
+
+<!-- ═══ BENEFITS ════════════════════════════════════════════════ -->
+<section class="benefits">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">📦 O Que Você Recebe</div>
+      <h2 class="section-title" style="margin-top:14px">
+        Tudo que você precisa<br>para <span class="g">ser o craque</span>
+      </h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="b-icon">🎨</div>
+        <div>
+          <div class="b-title">Arquivo Editável</div>
+          <div class="b-desc">Template profissional em alta resolução, pronto para personalizar com qualquer foto. Qualidade de impressão HD.</div>
+          <span class="b-tag">Incluso</span>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="b-icon">📹</div>
+        <div>
+          <div class="b-title">Tutorial Passo a Passo</div>
+          <div class="b-desc">Aprenda a colocar seu rosto e dados na figurinha em menos de 5 minutos, mesmo sem experiência.</div>
+          <span class="b-tag">Incluso</span>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="b-icon">📄</div>
+        <div>
+          <div class="b-title">Arquivo PDF Final</div>
+          <div class="b-desc">Pronto para imprimir em casa ou em qualquer gráfica. Resolução profissional, resultado incrível.</div>
+          <span class="b-tag">Incluso</span>
+        </div>
+      </div>
+      <div class="benefit-card bonus">
+        <div class="b-icon">💰</div>
+        <div>
+          <div class="b-title">Bônus: Monetize!</div>
+          <div class="b-desc">Faça para amigos, família e times. Quem sabe isso vira uma renda extra? A decisão é toda sua.</div>
+          <span class="b-tag bonus">Bônus Exclusivo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─ CTA 2 ─────────────────────────────────────────────────── -->
+<div class="inline-cta">
+  <div class="inline-cta-inner">
+    <div class="inline-cta-label">📦 Arquivo editável + tutorial incluso</div>
+    <div class="inline-cta-price">
+      <span class="inline-cta-old">R$ 49,90</span>
+      <span class="inline-cta-new">R$ 24,90</span>
+      <span class="inline-cta-pix">via PIX</span>
+    </div>
+    <button class="btn-cta" onclick="window.location.href='https://multi.paradisepags.com/p/pix_603a8734e4fd'">
+      ⚽ SIM! QUERO ADICIONAR AO MEU PEDIDO
+      <span class="btn-sub">Pagamento único · Entrega imediata por e-mail</span>
+    </button>
+  </div>
+</div>
+
+<div class="rainbow"></div>
+
+<!-- ═══ PERSONALIZATION ══════════════════════════════════════════ -->
+<section class="perso-section">
+  <div class="container">
+    <div class="badge" style="margin-bottom:14px">✨ Personalização Completa</div>
+    <h2 class="section-title">
+      Sua figurinha,<br><span class="y">do seu jeito</span>
+    </h2>
+    <p style="font-size:14px;color:#333;max-width:400px;margin:14px auto 0;line-height:1.7">
+      Cada detalhe pode ser personalizado — para você ou para quem você ama.
+    </p>
+    <div class="perso-grid">
+      <div class="perso-item">
+        <span class="p-icon">📸</span>
+        <span class="p-label">Sua Foto</span>
+      </div>
+      <div class="perso-item">
+        <span class="p-icon">👤</span>
+        <span class="p-label">Nome</span>
+      </div>
+      <div class="perso-item">
+        <span class="p-icon">🌍</span>
+        <span class="p-label">País / Seleção</span>
+      </div>
+      <div class="perso-item">
+        <span class="p-icon">⚽</span>
+        <span class="p-label">Time</span>
+      </div>
+      <div class="perso-item">
+        <span class="p-icon">📏</span>
+        <span class="p-label">Altura e Peso</span>
+      </div>
+      <div class="perso-item">
+        <span class="p-icon">🎂</span>
+        <span class="p-label">Data de Nasc.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUTO MOCKUP ══════════════════════════════════════════ -->
+<div style="background:var(--bg);padding:48px 24px 40px;text-align:center">
+  <div style="max-width:420px;margin:0 auto">
+    <div class="badge" style="margin-bottom:14px">🎨 Seu produto final</div>
+    <h3 style="font-family:'Anton',sans-serif;font-size:clamp(22px,5vw,36px);text-transform:uppercase;line-height:1.1;margin-bottom:18px">
+      Assim fica sua<br><span style="color:var(--green)">figurinha personalizada</span>
+    </h3>
+    <img src="images/produto1.png" alt="Mockup figurinha personalizada Copa 2026"
+      style="width:100%;max-width:380px;display:block;margin:0 auto;border-radius:12px;filter:drop-shadow(0 16px 40px rgba(0,0,0,.15))"
+      loading="lazy" />
+    <p style="font-size:13px;color:#666;margin-top:16px;line-height:1.7">
+      Arquivo em alta resolução — pronto para imprimir ou compartilhar digitalmente
+    </p>
+  </div>
+</div>
+
+<div class="rainbow"></div>
+
+<!-- ═══ SELEÇÕES GALLERY (fundo amarelo contínuo) ═════════════ -->
+<div class="sele-section">
+  <p class="sele-heading">Disponível para<br>qualquer seleção 🌍</p>
+  <div class="sele-scroll">
+    <div class="sele-card">
+      <img src="images/sele1.png" alt="Figurinha personalizada seleção" loading="lazy" />
+      <div class="sele-card-tag">🇵🇹 Portugal</div>
+    </div>
+    <div class="sele-card">
+      <img src="images/sele2.png" alt="Figurinha personalizada seleção" loading="lazy" />
+      <div class="sele-card-tag">🇪🇸 Espanha</div>
+    </div>
+    <div class="sele-card">
+      <img src="images/sele3.png" alt="Figurinha personalizada seleção" loading="lazy" />
+      <div class="sele-card-tag">🇧🇷 Brasil</div>
+    </div>
+  </div>
+  <div style="margin-top:20px;text-align:center;background:var(--ink);border-radius:12px;padding:14px 20px;max-width:520px;margin-left:auto;margin-right:auto;margin-top:20px">
+    <p style="color:#fff;font-family:'Anton',sans-serif;font-size:18px;text-transform:uppercase;letter-spacing:1px">
+      🌍 +32 seleções disponíveis
+    </p>
+    <p style="color:rgba(255,255,255,.65);font-size:12px;margin-top:4px;font-weight:600">
+      Você escolhe a seleção, o time e os dados — nós entregamos o arquivo editável
+    </p>
+  </div>
+</div>
+
+<div class="rainbow"></div>
+
+<!-- ═══ SOCIAL PROOF ═════════════════════════════════════════════ -->
+<section class="social">
+  <div class="container">
+    <div class="social-number">+3.847</div>
+    <div class="social-label">figurinhas personalizadas entregues</div>
+    <div class="stars">★★★★★</div>
+    <div class="rating-label">4.9/5 — Avaliação dos Clientes</div>
+
+    <!-- Resultados reais -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:480px;margin:28px auto 0">
+      <div style="position:relative">
+        <img src="images/resultado1.png" alt="Resultado real — figurinha personalizada impressa"
+          style="width:100%;border-radius:12px;border:2.5px solid rgba(255,255,255,.15);display:block"
+          loading="lazy" />
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;letter-spacing:.8px;text-transform:uppercase">
+          ✓ Resultado Real
+        </div>
+      </div>
+      <div style="position:relative">
+        <img src="images/resultado2.png" alt="Resultado real — figurinha personalizada impressa"
+          style="width:100%;border-radius:12px;border:2.5px solid rgba(255,255,255,.15);display:block"
+          loading="lazy" />
+        <div style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap;letter-spacing:.8px;text-transform:uppercase">
+          ✓ Resultado Real
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:rgba(255,255,255,.4);margin-top:10px;font-weight:600">Clientes reais que receberam sua figurinha personalizada</p>
+
+    <div class="testimonials" style="grid-template-columns:1fr">
+      <div class="testimonial">
+        <div class="t-text">
+          "Fiz para o meu filho e ele ficou na maior euforia! Levou para a escola e os amigos todos quiseram. Já fiz mais 5 para vender!"
+        </div>
+        <div class="t-footer">
+          <img src="images/1.png" alt="Maria S." class="t-avatar" />
+          <div>
+            <div class="t-author">Maria S. — São Paulo</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="t-text">
+          "Dei de presente para meu marido que é fanático por futebol. A reação dele não tem preço. Arquivo super fácil de usar!"
+        </div>
+        <div class="t-footer">
+          <img src="images/2.png" alt="Camila R." class="t-avatar" />
+          <div>
+            <div class="t-author">Camila R. — Rio de Janeiro</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="t-text">
+          "Comprei pra fazer surpresa pro meu pai no aniversário dele. Ele chorou quando viu! Muito fácil de personalizar, recebi tudo rapidinho."
+        </div>
+        <div class="t-footer">
+          <img src="images/4.png" alt="Fernanda M." class="t-avatar" />
+          <div>
+            <div class="t-author">Fernanda M. — Belo Horizonte</div>
+            <div class="t-stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─ CTA 3 ─────────────────────────────────────────────────── -->
+<div class="inline-cta">
+  <div class="inline-cta-inner">
+    <div class="inline-cta-label">✅ +3.847 clientes satisfeitos</div>
+    <div class="inline-cta-price">
+      <span class="inline-cta-old">R$ 49,90</span>
+      <span class="inline-cta-new">R$ 24,90</span>
+      <span class="inline-cta-pix">via PIX</span>
+    </div>
+    <button class="btn-cta" onclick="window.location.href='https://multi.paradisepags.com/p/pix_603a8734e4fd'">
+      ⚽ GARANTIR MINHA FIGURINHA AGORA
+      <span class="btn-sub">Aprovação instantânea via PIX · Garantia de 7 dias</span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══ PRINT PROOF ══════════════════════════════════════════════ -->
+<section class="print-section">
+  <div class="print-inner">
+    <div class="badge">🖨️ Pronto para Imprimir</div>
+    <h3 style="font-family:'Anton',sans-serif;font-size:clamp(22px,5vw,36px);text-transform:uppercase;margin:12px 0 4px;line-height:1.1">
+      Folha de impressão<br><span style="color:var(--green)">em alta resolução</span>
+    </h3>
+    <p style="font-size:13px;color:#666;line-height:1.7">
+      Receba o arquivo PDF com a sua figurinha em folha pronta para imprimir<br>
+      em casa ou em qualquer gráfica — resultado profissional garantido.
+    </p>
+    <img src="images/Upsell 2.png" alt="Folha de impressão figurinha personalizada Copa 2026" class="print-img" loading="lazy" />
+    <div class="print-tags">
+      <span class="print-tag">📐 Alta Resolução</span>
+      <span class="print-tag">🏠 Imprima em Casa</span>
+      <span class="print-tag">🖨️ Qualquer Gráfica</span>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow"></div>
+
+<!-- ═══ PRICE & CTA ══════════════════════════════════════════════ -->
+<section class="cta-section" id="oferta">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">🔥 Oferta Relâmpago — Só Para Você</div>
+      <h2 class="section-title" style="margin-top:14px">
+        Adicione sua<br><span class="g">figurinha personalizada</span>
+      </h2>
+      <p style="font-size:14px;color:#555;margin-top:12px;line-height:1.7">
+        Esta oferta é exclusiva para quem acabou de comprar o álbum.<br>
+        <strong>Não aparecerá novamente após você fechar essa página.</strong>
+      </p>
+    </div>
+
+    <div class="price-box">
+      <div class="price-box-top">Melhor Oferta</div>
+      <div class="price-old">De R$ 49,90</div>
+      <div class="price-row">
+        <span class="price-curr">R$</span>
+        <span class="price-num">24</span>
+        <span class="price-cent">,90</span>
+      </div>
+      <div class="price-sub">Pagamento único via PIX · Entrega imediata no e-mail</div>
+
+      <div class="includes-box">
+        <div class="includes-title">✅ Você vai receber:</div>
+        <div class="include-row"><span class="ck">✓</span> Arquivo editável (PDF + Template)</div>
+        <div class="include-row"><span class="ck">✓</span> Tutorial passo a passo completo</div>
+        <div class="include-row"><span class="ck">✓</span> Edições ilimitadas</div>
+        <div class="include-row"><span class="ck">✓</span> Entrega imediata por e-mail</div>
+        <div class="include-row"><span class="ck">✓</span> <strong>Bônus: Como monetizar sua figurinha</strong></div>
+      </div>
+
+      <button class="btn-cta" onclick="window.location.href='https://multi.paradisepags.com/p/pix_603a8734e4fd'">
+        ⚽ SIM! QUERO MINHA FIGURINHA PERSONALIZADA
+        <span class="btn-sub">Pagar agora R$ 24,90 via PIX · Receba na hora</span>
+      </button>
+
+      <div class="safe-row">
+        <span>🔒 Compra 100% Segura</span>
+        <span>⚡ PIX Instantâneo</span>
+        <span>🛡️ Garantia 7 Dias</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GUARANTEE ════════════════════════════════════════════════ -->
+<section class="guarantee">
+  <div class="guarantee-box">
+    <div class="g-icon">🛡️</div>
+    <div>
+      <div class="g-title">Garantia Incondicional de 7 Dias</div>
+      <div class="g-text">
+        Se por qualquer motivo você não ficar satisfeito com a sua figurinha personalizada,
+        devolvemos 100% do seu investimento. Sem perguntas, sem burocracia, sem enrolação.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rainbow"></div>
+
+<!-- ═══ SKIP ══════════════════════════════════════════════════════ -->
+<section class="skip-section">
+  <button class="skip-link" id="skipBtn">
+    Não, obrigado. Prefiro continuar sem minha figurinha personalizada e perder esta oferta exclusiva.
+  </button>
+</section>
+
+<!-- ═══ SECURITY FOOTER ══════════════════════════════════════════ -->
+<div class="security-footer">
+  <div class="sec-item">🔒 SSL Seguro</div>
+  <div class="sec-item">🛡️ Compra Protegida</div>
+  <div class="sec-item">⚡ Entrega Imediata</div>
+</div>
+
+
+<!-- ═══ FLOATING CTA ════════════════════════════════════════════ -->
+<div class="floating-cta" id="floatingCta">
+  <button class="btn-cta" onclick="window.location.href='https://multi.paradisepags.com/p/pix_603a8734e4fd'" style="font-size:14px;padding:15px 16px">
+    ⚽ QUERO MINHA FIGURINHA — R$ 24,90
+    <span class="btn-sub">Pagar via PIX · Receba na hora</span>
+  </button>
+</div>
+
+<script>
+  /* ── Image fallback ── */
+  const img = document.getElementById('productImg');
+  img.addEventListener('error', function () {
+    img.style.display = 'none';
+    document.getElementById('imgFallback').style.display = 'flex';
+  });
+
+  /* ── Countdown (persists across reloads for 10 min) ── */
+  (function () {
+    const KEY_END = 'upsell_end_time';
+    let endTime = parseInt(localStorage.getItem(KEY_END));
+    if (!endTime || endTime < Date.now()) {
+      endTime = Date.now() + 10 * 60 * 1000;
+      localStorage.setItem(KEY_END, endTime);
+    }
+
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const diff = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
+      document.getElementById('countdown').textContent =
+        pad(Math.floor(diff / 60)) + ':' + pad(diff % 60);
+      if (diff > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+
+  /* ── Floating CTA (show after price box scrolls off) ── */
+  (function () {
+    const floatingCta = document.getElementById('floatingCta');
+    const ofertaSection = document.getElementById('oferta');
+
+    window.addEventListener('scroll', function () {
+      const bottom = ofertaSection.getBoundingClientRect().bottom;
+      if (bottom < 0) {
+        floatingCta.classList.add('show');
+      } else {
+        floatingCta.classList.remove('show');
+      }
+    }, { passive: true });
+  })();
+
+
+  /* ── Skip button — troque pela URL da sua página de confirmação ── */
+  document.getElementById('skipBtn').addEventListener('click', function () {
+    window.location.href = 'obrigado.html';
+  });
+</script>
+</body>
+</html>
