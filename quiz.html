@@ -781,103 +781,6 @@
        STEP 4 — O que você recebe
     ═══════════════════════════════════════ */
     /* ── Step 4: hero item (produto principal) ── */
-    .item-hero {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      background: oklch(0.22 0.03 260);
-      border-radius: 10px;
-      border: 2px solid oklch(0.35 0.05 260);
-      padding: 14px 16px;
-      margin-bottom: 20px;
-    }
-    .item-hero-icon { font-size: 32px; flex-shrink: 0; }
-    .item-hero-label {
-      font-family: var(--font-condensed);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 2px;
-    }
-    .item-hero-title {
-      font-family: var(--font-display);
-      font-size: 18px;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 3px;
-    }
-    .item-hero-desc {
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: oklch(0.78 0.02 260);
-      line-height: 1.4;
-    }
-    /* ── Step 4: bonus carousel ── */
-    .bonus-carousel-outer {
-      overflow: hidden;
-      margin: 0 0 6px;
-    }
-    .bonus-carousel-track {
-      display: flex;
-      transition: transform 0.32s ease;
-      gap: 10px;
-      align-items: flex-start;
-    }
-    .bonus-carousel-slide {
-      min-width: calc(88% - 5px);
-      flex-shrink: 0;
-      box-sizing: border-box;
-    }
-    .bonus-card-v {
-      background: #fff;
-      border-radius: 12px;
-      border: 3px solid #000;
-      box-shadow: 0 6px 0 rgba(0,0,0,0.88);
-      overflow: hidden;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .bonus-card-v img {
-      width: 100%;
-      display: block;
-      height: 160px;
-      object-fit: cover;
-      object-position: center top;
-    }
-    .bonus-card-v-accent {
-      height: 4px;
-      background: var(--green);
-    }
-    .bonus-card-v-body {
-      padding: 10px 12px 14px;
-      box-sizing: border-box;
-    }
-    .bonus-card-v-num {
-      font-family: var(--font-condensed);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 3px;
-    }
-    .bonus-card-v-title {
-      font-family: var(--font-display);
-      font-size: 16px;
-      color: var(--navy);
-      margin-bottom: 5px;
-      line-height: 1.2;
-    }
-    .bonus-card-v-desc {
-      font-family: var(--font-body);
-      font-size: 13px;
-      color: #444;
-      line-height: 1.5;
-      word-break: break-word;
-      white-space: normal;
-    }
     .items-stack {
       display: flex;
       flex-direction: column;
@@ -1747,6 +1650,11 @@
         setTimeout(() => stickyEl.classList.add('visible'), 300);
       }
 
+      // Retoma vídeos do step ativo (pausados pelo display:none)
+      document.querySelector(`.step[data-step="${n}"]`).querySelectorAll('video').forEach(v => {
+        v.play().catch(() => {});
+      });
+
       if (n === 8 && !countdownStarted) {
         startCountdown(600);
         countdownStarted = true;
@@ -1881,28 +1789,6 @@
       setTimeout(loop, 14000 + Math.random() * 6000);
     }, 4000);
 
-    // ─── BONUS CAROUSEL ──────────────────────────────
-    let bonusSlide = 0;
-    const bonusTrack = document.getElementById('bonus-carousel-inner');
-    const bonusDots  = document.querySelectorAll('#bonus-dots .dot');
-
-    function goToBonusSlide(i) {
-      bonusSlide = i;
-      const slideW = bonusTrack.querySelector('.bonus-carousel-slide').offsetWidth + 12;
-      bonusTrack.style.transform = `translateX(-${i * slideW}px)`;
-      bonusDots.forEach((d, idx) => d.classList.toggle('active', idx === i));
-    }
-
-    const bonusOuter = bonusTrack.parentElement;
-    let btsX = 0;
-    bonusOuter.addEventListener('touchstart', e => { btsX = e.changedTouches[0].screenX; }, { passive: true });
-    bonusOuter.addEventListener('touchend', e => {
-      const diff = btsX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 40) {
-        if (diff > 0 && bonusSlide < 2) goToBonusSlide(bonusSlide + 1);
-        if (diff < 0 && bonusSlide > 0) goToBonusSlide(bonusSlide - 1);
-      }
-    }, { passive: true });
 
     // ─── SOM DOS VÍDEOS ──────────────────────────────
     function toggleSound(vidId, btnId) {
