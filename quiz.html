@@ -742,19 +742,19 @@
     }
     .wpp-card {
       min-width: 100%;
+      height: 420px;
       background: #111b21;
       padding: 0;
       line-height: 0;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
     .wpp-card img {
       width: 100%;
-      height: auto;
-      max-height: 480px;
+      height: 100%;
       display: block;
-      border-radius: 7px;
       object-fit: contain;
     }
 
@@ -872,9 +872,32 @@
       color: oklch(0.42 0.03 260);
       line-height: 1.7;
     }
+    .guarantee-inline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: oklch(0.13 0.02 260);
+      border: 2px solid oklch(0.3 0.04 260);
+      border-radius: 14px;
+      padding: 16px;
+      margin: 18px 0 4px;
+    }
+    .guarantee-inline .guarantee-seal {
+      width: 90px; height: 90px;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .guarantee-inline .guarantee-seal .seal-number { font-size: 30px; }
+    .guarantee-inline-text {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: oklch(0.82 0.02 260);
+      line-height: 1.55;
+    }
+    .guarantee-inline-text strong { color: #fff; }
 
     /* ═══════════════════════════════════════
-       STEP 6 — FAQ
+       STEP 5 — FAQ
     ═══════════════════════════════════════ */
     .faq-stack {
       display: flex;
@@ -1155,7 +1178,7 @@
         </h1>
 
         <div class="video-wrap" style="position:relative;">
-          <video id="vid1" src="images/hero.mp4" autoplay muted loop playsinline></video>
+          <video id="vid1" src="images/hero.mp4" autoplay muted loop playsinline preload="auto"></video>
           <button class="sound-toggle" onclick="toggleSound('vid1','sb1')" id="sb1">🔇</button>
         </div>
 
@@ -1201,7 +1224,7 @@
         </p>
 
         <div class="video-wrap" style="position:relative;">
-          <video id="vid2" src="media/hero-video.mp4" autoplay muted loop playsinline></video>
+          <video id="vid2" src="media/hero-video.mp4" autoplay muted loop playsinline preload="auto"></video>
           <button class="sound-toggle" onclick="toggleSound('vid2','sb2')" id="sb2">🔇</button>
         </div>
 
@@ -1250,26 +1273,28 @@
 
         <div class="carousel-outer" id="carousel">
           <div class="carousel-inner" id="carousel-inner">
-            <div class="wpp-card">
-              <img src="images/depoimento-wpp1.png" alt="Depoimento cliente 1">
-            </div>
-            <div class="wpp-card">
-              <img src="images/depoimento-wpp2.png" alt="Depoimento cliente 2">
-            </div>
-            <div class="wpp-card">
-              <img src="images/depoimento-wpp3.png" alt="Depoimento cliente 3">
-            </div>
-            <div class="wpp-card">
-              <img src="images/depoimento-wpp4.png" alt="Depoimento cliente 4">
-            </div>
+            <div class="wpp-card"><img src="images/depoimento-wpp1.png"                   alt="Depoimento 1" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-wpp2.png"                   alt="Depoimento 2" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-wpp3.png"                   alt="Depoimento 3" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-wpp4.png"                   alt="Depoimento 4" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-wpp5.jpeg"                  alt="Depoimento 5" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-wpp6.jfif"                  alt="Depoimento 6" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-carlos-C4--0Itr.webp"       alt="Depoimento Carlos" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-mariana-CRT3Etmq.webp"      alt="Depoimento Mariana" loading="lazy"></div>
+            <div class="wpp-card"><img src="images/depoimento-patricia-D_37NipZ.webp"     alt="Depoimento Patricia" loading="lazy"></div>
           </div>
         </div>
 
-        <div class="carousel-dots">
+        <div class="carousel-dots" id="carousel-dots">
           <div class="dot active" onclick="goToSlide(0)"></div>
           <div class="dot" onclick="goToSlide(1)"></div>
           <div class="dot" onclick="goToSlide(2)"></div>
           <div class="dot" onclick="goToSlide(3)"></div>
+          <div class="dot" onclick="goToSlide(4)"></div>
+          <div class="dot" onclick="goToSlide(5)"></div>
+          <div class="dot" onclick="goToSlide(6)"></div>
+          <div class="dot" onclick="goToSlide(7)"></div>
+          <div class="dot" onclick="goToSlide(8)"></div>
         </div>
 
         <div style="margin-top:22px;">
@@ -1279,74 +1304,9 @@
     </div>
 
     <!-- ══════════════════════════════════════════
-         STEP 4 — O que você recebe
+         STEP 4 — Calculadora + Garantia
     ══════════════════════════════════════════ -->
     <div class="step has-sticky" data-step="4">
-      <div class="section-navy">
-        <div>
-          <span class="badge"><span class="dot"></span>Conteúdo completo</span>
-        </div>
-
-        <h2 class="headline white" style="font-size:1.9rem;">
-          O QUE VOCÊ VAI RECEBER:
-        </h2>
-        <p class="subtext white">
-          Tudo para completar o álbum sem gastar uma fortuna em pacotinhos.
-        </p>
-
-        <div class="items-stack">
-          <div class="item-card">
-            <div class="item-check">✅</div>
-            <div class="item-body">
-              <div class="item-title">+900 Figurinhas em PDF</div>
-              <div class="item-desc">Todas as seleções da Copa 2026, organizadas e prontas para imprimir</div>
-            </div>
-          </div>
-
-          <div class="item-card">
-            <div class="item-check">✅</div>
-            <div class="item-body">
-              <div class="item-title">Figurinhas Exclusivas + Metalizadas</div>
-              <div class="item-desc">As especiais metalizadas e lendas inclusas no pack</div>
-            </div>
-          </div>
-
-          <div class="item-card">
-            <div class="item-check">✅</div>
-            <div class="item-body">
-              <div class="item-title">Álbum Completo em PDF</div>
-              <div class="item-desc">O álbum para montar em casa e colar as figurinhas como o original</div>
-              <span class="bonus-tag">🎁 BÔNUS GRÁTIS</span>
-            </div>
-          </div>
-
-          <div class="item-card">
-            <div class="item-check">✅</div>
-            <div class="item-body">
-              <div class="item-title">Envelope das Figurinhas em PDF</div>
-              <div class="item-desc">Envelope personalizado para presentear ou brincar</div>
-              <span class="bonus-tag">🎁 BÔNUS GRÁTIS</span>
-            </div>
-          </div>
-
-          <div class="item-card">
-            <div class="item-check">✅</div>
-            <div class="item-body">
-              <div class="item-title">Tutorial: Imprimir Idêntico ao Original</div>
-              <div class="item-desc">Passo a passo para resultado profissional em qualquer impressora</div>
-              <span class="bonus-tag">🎁 BÔNUS GRÁTIS</span>
-            </div>
-          </div>
-        </div>
-
-        <button class="btn-cta" onclick="goToStep(5)">QUERO BAIXAR AGORA →</button>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         STEP 5 — A conta real do álbum
-    ══════════════════════════════════════════ -->
-    <div class="step has-sticky" data-step="5">
       <div class="calc-section">
 
         <div><span class="calc-tag">🧮 A conta real do álbum oficial</span></div>
@@ -1392,8 +1352,21 @@
           <div class="ep-value">R$ 4.980,10</div>
         </div>
 
+        <!-- Garantia inline -->
+        <div class="guarantee-inline">
+          <div class="guarantee-seal" style="flex-shrink:0;">
+            <div class="seal-top">SATISFAÇÃO<br>GARANTIDA</div>
+            <div class="seal-number">30</div>
+            <div class="seal-unit">DIAS</div>
+            <div class="seal-bottom">OU SEU<br>DINHEIRO<br>DE VOLTA</div>
+          </div>
+          <p class="guarantee-inline-text">
+            Fique tranquilo, você pode testar à vontade. Se não ficar satisfeito em até <strong>30 dias</strong>, devolvemos <strong>100% do seu dinheiro</strong> — sem perguntas, sem burocracia.
+          </p>
+        </div>
+
         <div class="calc-cta-wrap">
-          <button class="btn-cta" onclick="goToStep(6)">
+          <button class="btn-cta" onclick="goToStep(5)">
             CONTINUAR →
           </button>
         </div>
@@ -1402,43 +1375,9 @@
     </div>
 
     <!-- ══════════════════════════════════════════
-         STEP 6 — Garantia
+         STEP 5 — FAQ
     ══════════════════════════════════════════ -->
-    <div class="step" data-step="6">
-      <div class="section-cream">
-        <h2 class="headline" style="font-size:2rem; text-align:center;">
-          APROVEITE A OFERTA!
-        </h2>
-
-        <div style="text-align:center; margin-bottom:4px;">
-          <span class="badge btn-red" style="background:var(--red); color:#fff; border-color:#000;">
-            VOCÊ NÃO CORRE NENHUM RISCO
-          </span>
-        </div>
-
-        <div class="guarantee-card">
-          <div class="guarantee-seal">
-            <div class="seal-top">SATISFAÇÃO<br>GARANTIDA</div>
-            <div class="seal-number">30</div>
-            <div class="seal-unit">DIAS</div>
-            <div class="seal-bottom">OU SEU<br>DINHEIRO<br>DE VOLTA</div>
-          </div>
-
-          <p class="guarantee-text">
-            Ao adquirir nosso Pack de Figurinhas PDF, você tem até <strong>30 dias</strong> para testar.
-            Se não ficar satisfeito por qualquer motivo, é só enviar um e-mail e devolvemos
-            <strong>100% do seu dinheiro</strong> — sem perguntas, sem burocracia.
-          </p>
-        </div>
-
-        <button class="btn-cta" onclick="goToStep(7)">CONTINUAR →</button>
-      </div>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         STEP 7 — FAQ
-    ══════════════════════════════════════════ -->
-    <div class="step" data-step="7">
+    <div class="step" data-step="5">
       <div class="section-navy">
         <div>
           <span class="badge"><span class="dot"></span>Tire suas dúvidas</span>
@@ -1535,9 +1474,9 @@
     </div>
 
     <!-- ══════════════════════════════════════════
-         STEP 8 — Oferta / Checkout
+         STEP 6 — Oferta / Checkout
     ══════════════════════════════════════════ -->
-    <div class="step has-sticky" data-step="8">
+    <div class="step has-sticky" data-step="6">
       <div class="section-navy">
 
         <div style="text-align:center;">
@@ -1621,7 +1560,7 @@
     let currentStep  = 1;
     let currentSlide = 0;
     let countdownStarted = false;
-    const TOTAL_STEPS = 8;
+    const TOTAL_STEPS = 6;
 
     // ─── NAVEGAÇÃO ───────────────────────────────────
     function goToStep(n) {
@@ -1636,10 +1575,9 @@
       const stickyBtn = document.getElementById('sticky-cta-btn');
       const stickyMap = {
         2: { text: 'CONTINUAR →',           bg: 'navy',  fn: () => goToStep(3) },
-        4: { text: 'QUERO BAIXAR AGORA →',  bg: 'navy',  fn: () => goToStep(5) },
-        5: { text: 'CONTINUAR →',           bg: 'dark',  fn: () => goToStep(6) },
-        7: { text: 'QUERO BAIXAR AGORA →',  bg: 'navy',  fn: () => goToStep(8) },
-        8: { text: 'COMPRAR MEU ÁLBUM →',   bg: 'navy',  fn: () => window.open('https://pay.cakto.com.br/dc7dugk_890851','_blank') },
+        4: { text: 'CONTINUAR →',           bg: 'dark',  fn: () => goToStep(5) },
+        5: { text: 'QUERO BAIXAR AGORA →',  bg: 'navy',  fn: () => goToStep(6) },
+        6: { text: 'COMPRAR MEU ÁLBUM →',   bg: 'navy',  fn: () => window.open('https://pay.cakto.com.br/dc7dugk_890851','_blank') },
       };
       stickyEl.classList.remove('visible','light','dark','navy');
       if (stickyMap[n]) {
@@ -1655,7 +1593,7 @@
         v.play().catch(() => {});
       });
 
-      if (n === 8 && !countdownStarted) {
+      if (n === 6 && !countdownStarted) {
         startCountdown(600);
         countdownStarted = true;
       }
@@ -1667,11 +1605,14 @@
     }
 
     // ─── CARROSSEL ───────────────────────────────────
+    const TOTAL_SLIDES = 9;
+
     function goToSlide(i) {
-      currentSlide = i;
-      document.getElementById('carousel-inner').style.transform = `translateX(-${i * 100}%)`;
-      document.querySelectorAll('.dot').forEach((d, idx) =>
-        d.classList.toggle('active', idx === i));
+      currentSlide = Math.max(0, Math.min(i, TOTAL_SLIDES - 1));
+      const w = document.getElementById('carousel').offsetWidth;
+      document.getElementById('carousel-inner').style.transform = `translateX(${-currentSlide * w}px)`;
+      document.querySelectorAll('#carousel-dots .dot').forEach((d, idx) =>
+        d.classList.toggle('active', idx === currentSlide));
     }
 
     let tsX = 0;
@@ -1679,13 +1620,13 @@
     carouselEl.addEventListener('touchstart', e => { tsX = e.changedTouches[0].screenX; }, { passive: true });
     carouselEl.addEventListener('touchend', e => {
       const diff = tsX - e.changedTouches[0].screenX;
-      if (Math.abs(diff) > 38) {
-        if (diff > 0 && currentSlide < 3) goToSlide(currentSlide + 1);
-        if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+      if (Math.abs(diff) > 35) {
+        if (diff > 0) goToSlide(currentSlide + 1);
+        if (diff < 0) goToSlide(currentSlide - 1);
       }
     }, { passive: true });
 
-    setInterval(() => { if (currentStep === 3) goToSlide((currentSlide + 1) % 4); }, 4500);
+    setInterval(() => { if (currentStep === 3) goToSlide((currentSlide + 1) % TOTAL_SLIDES); }, 4500);
 
     // ─── FAQ ─────────────────────────────────────────
     function toggleFaq(idx) {
@@ -1772,7 +1713,7 @@
     const toastTimes = ['agora','há 1 min','há 2 min','há 3 min'];
 
     function showPurchaseToast() {
-      if ([1, 2, 8].includes(currentStep)) return;
+      if ([1, 2, 6].includes(currentStep)) return;
       const toast = document.getElementById('purchase-toast');
       document.getElementById('toast-name').textContent =
         toastNames[Math.floor(Math.random() * toastNames.length)];
@@ -1800,6 +1741,9 @@
 
     // ─── INIT ─────────────────────────────────────────
     updateProgress();
+    // Garante que o vídeo do Step 1 carrega e reproduz mesmo após troca de arquivo
+    const vid1 = document.getElementById('vid1');
+    if (vid1) { vid1.load(); vid1.play().catch(() => {}); }
   </script>
 
 </body>
